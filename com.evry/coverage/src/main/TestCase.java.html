@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestCase.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">TestCase (2) (5 Nov 2019 12:07:59)</a> &gt; <a href="../../index.html" class="el_group">com.evry</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">main</a> &gt; <span class="el_source">TestCase.java</span></div><h1>TestCase.java</h1><pre class="source lang-java linenums">package main;
+import java.util.ArrayList;
+<span class="nc" id="L3">public class TestCase {</span>
+	/*==========================================================
+	 *  						Instances 
+	 *=========================================================*/
+<span class="fc" id="L7">	static SomeHelperClass someHelperClass = new SomeHelperClass();</span>
+
+	/*==========================================================
+	 *  						Main 
+	 *=========================================================*/
+	public static void main(String[] args) {
+
+<span class="fc" id="L14">		System.out.println(&quot;Please Choose an option: \n&quot;</span>
+				+ &quot;1: SORT_ASCENDING \n&quot;
+				+ &quot;2: SORT_DESCENDING \n&quot;
+				+ &quot;3: SORT_ByType \n&quot;
+				+ &quot;N: SORT_NOTHING \n&quot;);
+ 
+
+		// Check if the input is valid option*/
+<span class="fc" id="L22">		int choice = SomeHelperClass.validateInput(); </span>
+
+		try {
+
+<span class="fc" id="L26">			ArrayList&lt;Figure&gt; list =someHelperClass.getFigures();//Figures List</span>
+<span class="fc" id="L27">			SomeHelperClass.sort(list,choice); //Sort List</span>
+<span class="fc" id="L28">			list.forEach((figure) -&gt; figure.print());</span>
+			
+<span class="pc" id="L30">		} catch (Exception e) {</span>
+		} finally {
+<span class="fc" id="L32">			someHelperClass = null;</span>
+		}
+
+<span class="fc" id="L35">	}</span>
+} 
+
+  
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span>TestCase (2) (5 Nov 2019 12:07:59)</div></body></html>

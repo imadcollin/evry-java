@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>SomeHelperClass.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">TestCase (2) (5 Nov 2019 12:07:59)</a> &gt; <a href="../../index.html" class="el_group">com.evry</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">main</a> &gt; <span class="el_source">SomeHelperClass.java</span></div><h1>SomeHelperClass.java</h1><pre class="source lang-java linenums">package main;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+<span class="fc" id="L6">public class SomeHelperClass {</span>
+
+	/*
+	 * Context for exceptions from helper
+	 */
+<span class="fc" id="L11">	public static final String CONTEXT = SomeHelperClass.class.getName();</span>
+<span class="fc" id="L12">	private static Scanner scanner;</span>
+
+  
+	/**
+	 * Retrieves a ArrayList of figures 
+	 * @return ArrayList of Figures 
+	 * @throws Exception
+	 */
+	public ArrayList&lt;Figure&gt; getFigures() throws SystemException {
+
+<span class="fc" id="L22">		ArrayList&lt;Figure&gt; list = new ArrayList&lt;Figure&gt;();</span>
+<span class="fc" id="L23">		list.add(new Square(3));</span>
+<span class="fc" id="L24">		list.add(new Triangle(2, 3));</span>
+<span class="fc" id="L25">		list.add(new Square(2));</span>
+<span class="fc" id="L26">		list.add(new Triangle(2, 2));</span>
+<span class="fc" id="L27">		list.add(new Triangle(2, 6));</span>
+
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">		if (list.isEmpty()) {</span>
+<span class="nc" id="L30">			throw new SystemException(&quot;Empty list&quot;, CONTEXT);</span>
+		}
+<span class="fc" id="L32">		return list;</span>
+	}  
+  
+	/**
+	 * Sorts the list depending on incoming sort choice parameter
+	 * @param list
+	 * @param sortChoice: 1, 2 , or any digit
+	 */
+	public static ArrayList&lt;Figure&gt; sort(ArrayList&lt;Figure&gt; list, int choice) {
+ 
+<span class="pc bpc" id="L42" title="3 of 4 branches missed.">		switch(choice) {</span>
+		case 1 : 
+<span class="fc" id="L44">			System.out.println(&quot;\n----------Figures Sorted By Area Ascending---------&quot;);</span>
+
+<span class="fc" id="L46">			Collections.sort(list);</span>
+<span class="fc" id="L47">			break; </span>
+		case 2:  
+<span class="nc" id="L49">			System.out.println(&quot;\n----------Figures Sorted By Area Descending---------&quot;);</span>
+
+<span class="nc" id="L51">			Collections.sort(list);</span>
+<span class="nc" id="L52">			Collections.reverse(list);</span>
+<span class="nc" id="L53">			break;</span>
+		case 3 :
+<span class="nc" id="L55">			System.out.println(&quot;\n----------Figures Sorted By Type---------&quot;);</span>
+
+<span class="nc" id="L57">			TypeCompare TypeCompare= new TypeCompare();</span>
+<span class="nc" id="L58">			Collections.sort(list,TypeCompare);</span>
+<span class="nc" id="L59">			break;</span>
+		default:
+<span class="nc" id="L61">			System.out.println(&quot;\nOBS!!! Random sort by Area...&quot;);</span>
+		}
+		//Print compared Figures by Area 
+<span class="fc" id="L64">		return list ;</span>
+		}
+
+	/**
+	 * Validate input using system in, returning the input when it is a valid 
+	 * number &quot;digit&quot; that to prevent the user entering other data type format
+	 * @param none  
+	 */
+	public static int validateInput() {
+<span class="fc" id="L73">		scanner = new Scanner(System.in);</span>
+
+		int number;
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">		do {</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">			while (!scanner.hasNextInt()) {</span>
+<span class="nc" id="L78">				String input = scanner.next();</span>
+<span class="nc" id="L79">				System.out.printf(&quot;\&quot;%s\&quot; is not a valid number.\n&quot;, input);</span>
+			}
+<span class="fc" id="L81">			number = scanner.nextInt();</span>
+<span class="fc" id="L82">		} while (number &lt; 0);</span>
+
+<span class="fc" id="L84">		System.out.printf(&quot;You have entered %d.\n&quot;, number);</span>
+<span class="fc" id="L85">		return number;</span>
+	} 
+ 
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span>TestCase (2) (5 Nov 2019 12:07:59)</div></body></html>

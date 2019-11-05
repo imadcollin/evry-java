@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Figure.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">TestCase (2) (5 Nov 2019 12:07:59)</a> &gt; <a href="../../index.html" class="el_group">com.evry</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">main</a> &gt; <span class="el_source">Figure.java</span></div><h1>Figure.java</h1><pre class="source lang-java linenums">package main;
+import java.util.Comparator;
+
+<span class="fc" id="L4">public abstract class Figure implements Comparable&lt;Object&gt; {</span>
+
+	/*==========================================================
+	 *  						Methods 
+	 *=========================================================*/
+	public void print() {
+<span class="fc" id="L10">		System.out.println(getType() + &quot; area = &quot; + getArea());</span>
+<span class="fc" id="L11">	}</span>
+
+	protected void throwExceptionUnlessLargerThanZero(double val) {
+<span class="pc bpc" id="L14" title="1 of 2 branches missed.">		if (val &lt;= 0) throw new IllegalArgumentException(); </span>
+<span class="fc" id="L15">	}</span>
+
+	/*==========================================================
+	 *  				Comparable Override Method 
+	 *=========================================================*/
+	public int compareTo(Object otherObject) throws NullPointerException {
+<span class="pc bpc" id="L21" title="1 of 2 branches missed.">		if (otherObject == null) throw new NullPointerException();</span>
+
+<span class="fc" id="L23">		Figure otherFigure = (Figure)otherObject; </span>
+
+<span class="fc bfc" id="L25" title="All 2 branches covered.">		if (getArea() &gt; otherFigure.getArea()) return 1;</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">		if (getArea() &lt; otherFigure.getArea()) return -1;</span>
+<span class="nc" id="L27">		return 0;</span>
+ 
+		//Or:
+		//return (int) (getArea()-otherFigure.getArea());
+	}
+	/*==========================================================
+	 *  				Abstract Methods 
+	 *=========================================================*/
+	public abstract double getArea();
+
+	public abstract String getType();
+}
+
+
+	/*==========================================================
+	 *  				Comparator 
+	 *=========================================================*/
+<span class="nc" id="L44">class TypeCompare implements Comparator&lt;Figure&gt; </span>
+{
+
+	@Override
+	public int compare(Figure f1, Figure f2) {
+<span class="nc" id="L49">		return f1.getType().compareTo(f2.getType());</span>
+
+	}  
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span>TestCase (2) (5 Nov 2019 12:07:59)</div></body></html>

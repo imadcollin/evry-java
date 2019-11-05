@@ -30,7 +30,7 @@ public class SomeHelperClass {
 			throw new SystemException("Empty list", CONTEXT);
 		}
 		return list;
-	} 
+	}  
   
 	/**
 	 * Sorts the list depending on incoming sort choice parameter
