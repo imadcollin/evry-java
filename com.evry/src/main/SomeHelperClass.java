@@ -31,14 +31,14 @@ public class SomeHelperClass {
 		}
 		return list;
 	} 
- 
+  
 	/**
 	 * Sorts the list depending on incoming sort choice parameter
 	 * @param list
 	 * @param sortChoice: 1, 2 , or any digit
 	 */
 	public static ArrayList<Figure> sort(ArrayList<Figure> list, int choice) {
-
+ 
 		switch(choice) {
 		case 1 : 
 			System.out.println("\n----------Figures Sorted By Area Ascending---------");
