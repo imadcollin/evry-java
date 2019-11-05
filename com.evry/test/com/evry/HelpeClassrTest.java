@@ -97,7 +97,8 @@ public class HelpeClassrTest {
 	public void inputValidateNamebrTest() {
 		String input1 = "1";
 		String input2 = "2";
-		String input3 = "100";
+		String input3 = "4";
+		
 		InputStream in1,in2,in3; 
 
 		in1= new ByteArrayInputStream(input1.getBytes());
@@ -114,8 +115,8 @@ public class HelpeClassrTest {
 
 		in3= new ByteArrayInputStream(input3.getBytes());
 		System.setIn(in3);
-		assertEquals(100, SomeHelperClass.validateInput());
-
+		assertEquals(4, SomeHelperClass.validateInput());
+ 
 	}   
 	
 	@Test(expected = Exception.class)  
@@ -126,8 +127,8 @@ public class HelpeClassrTest {
 		System.setIn(in1);
 
 		assertEquals("f", SomeHelperClass.validateInput());
-
-
+ 
+  
 	} 
 
 }

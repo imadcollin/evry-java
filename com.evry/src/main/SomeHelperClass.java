@@ -71,7 +71,6 @@ public class SomeHelperClass {
 	 */
 	public static int validateInput() {
 		scanner = new Scanner(System.in);
-
 		int number;
 		do {
 			while (!scanner.hasNextInt()) {
@@ -79,9 +78,11 @@ public class SomeHelperClass {
 				System.out.printf("\"%s\" is not a valid number.\n", input);
 			}
 			number = scanner.nextInt();
-		} while (number < 0);
+			if (number >4) System.out.println("Please Choose btw 1,2,3 or 4");
+		} while (number >4);
 
 		System.out.printf("You have entered %d.\n", number);
+		scanner.close();
 		return number;
 	} 
  
