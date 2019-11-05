@@ -20,12 +20,12 @@ public abstract class Figure implements Comparable<Object> {
 	public int compareTo(Object otherObject) throws NullPointerException {
 		if (otherObject == null) throw new NullPointerException();
 
-		Figure otherFigure = (Figure)otherObject;
+		Figure otherFigure = (Figure)otherObject; 
 
 		if (getArea() > otherFigure.getArea()) return 1;
 		if (getArea() < otherFigure.getArea()) return -1;
 		return 0;
-
+ 
 		//Or:
 		//return (int) (getArea()-otherFigure.getArea());
 	}

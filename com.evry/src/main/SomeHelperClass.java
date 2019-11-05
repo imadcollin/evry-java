@@ -9,8 +9,9 @@ public class SomeHelperClass {
 	 * Context for exceptions from helper
 	 */
 	public static final String CONTEXT = SomeHelperClass.class.getName();
+	private static Scanner scanner;
 
-
+  
 	/**
 	 * Retrieves a ArrayList of figures 
 	 * @return ArrayList of Figures 
@@ -29,37 +30,39 @@ public class SomeHelperClass {
 			throw new SystemException("Empty list", CONTEXT);
 		}
 		return list;
-	}
-
+	} 
+ 
 	/**
 	 * Sorts the list depending on incoming sort choice parameter
 	 * @param list
 	 * @param sortChoice: 1, 2 , or any digit
 	 */
-	public static void sort(ArrayList<Figure> list, int choice) {
-		System.out.println("\n----------Figures sorted by Area---------");
+	public static ArrayList<Figure> sort(ArrayList<Figure> list, int choice) {
 
 		switch(choice) {
 		case 1 : 
+			System.out.println("\n----------Figures Sorted By Area Ascending---------");
+
 			Collections.sort(list);
 			break; 
-		case 2: 
+		case 2:  
+			System.out.println("\n----------Figures Sorted By Area Descending---------");
+
 			Collections.sort(list);
 			Collections.reverse(list);
 			break;
+		case 3 :
+			System.out.println("\n----------Figures Sorted By Type---------");
+
+			TypeCompare TypeCompare= new TypeCompare();
+			Collections.sort(list,TypeCompare);
+			break;
 		default:
-			System.out.println("\nOBS!!! Random sort by Area... only 1 or 2 for sorted list");
+			System.out.println("\nOBS!!! Random sort by Area...");
 		}
 		//Print compared Figures by Area 
-		list.forEach((figure) -> figure.print());
-
-		//Compare by Types and print
-		TypeCompare TypeCompare= new TypeCompare();
-		Collections.sort(list,TypeCompare);
-
-		System.out.println("\n----------Figures sorted by Type----------");
-		list.forEach((figure) -> figure.print());
-	}
+		return list ;
+		}
 
 	/**
 	 * Validate input using system in, returning the input when it is a valid 
@@ -67,7 +70,7 @@ public class SomeHelperClass {
 	 * @param none  
 	 */
 	public static int validateInput() {
-		Scanner scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in);
 
 		int number;
 		do {
