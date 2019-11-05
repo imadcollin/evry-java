@@ -83,6 +83,6 @@ public class SomeHelperClass {
 
 		System.out.printf("You have entered %d.\n", number);
 		return number;
-	}
-
+	} 
+ 
 }
